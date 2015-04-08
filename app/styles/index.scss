@@ -1,15 +1,18 @@
 @import 'bootstrap-sass/assets/stylesheets/_bootstrap';
 $hero-text-color: #ddd;
+
 body {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   width: 100%;
   font-size: 16px;
 }
+
 .hero {
   text-align: center;
   min-height: 370px;
   background-color: rgba(0, 0, 0, 0.45);
 }
+
 .hero-bg {
   position: absolute;
   left: 0;
@@ -31,13 +34,19 @@ body {
   text-align: center;
   color: $hero-text-color;
   h1 {
-    font-size: 3em;
+    font-size: 4em;
+    @media (min-width: $screen-md-min) {
+      font-size: 3em;
+    }
   }
   h2 {
-    font-size: 1em;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-top: 1.5em;
+    font-size: 1.5em;
+    @media (min-width: $screen-md-min) {
+      font-size: 1em;
+    }
   }
   h1, h2 {
     margin-left: auto;
@@ -75,17 +84,23 @@ p {
 .form-horizontal .control-label {
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 0.8em;
   margin-top: 0.15em;
-  font-weight: 200;
+  @media (min-width: $screen-md-min) {
+    font-size: 0.8em;
+    font-weight: 200;
+  }
 }
 
 .form-control {
-  font-weight: 200;
+  @media (min-width: $screen-md-min) {
+    font-weight: 200;
+  }
 }
 
 .btn {
-  font-weight: 200;
+  @media (min-width: $screen-md-min) {
+    font-weight: 200;
+  }
 }
 
 .navbar {
