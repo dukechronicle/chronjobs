@@ -6,6 +6,7 @@ var sass = require('gulp-sass');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var ghPages = require('gulp-gh-pages');
 
 gulp.task('default', ['build'], function() {
 });
@@ -40,8 +41,17 @@ gulp.task('images', function() {
     .pipe(gulp.dest('./dist/images'))
 });
 
-gulp.task('build', ['scripts', 'sass', 'images'], function() {
+gulp.task('cname', function() {
+  gulp.src('./app/CNAME')
+    .pipe(gulp.dest('./dist/'))
+});
+gulp.task('build', ['cname', 'scripts', 'sass', 'images'], function() {
   gulp.src('./app/**/*.html')
     .pipe(minifyHtml({}))
     .pipe(gulp.dest('./dist/'))
+});
+
+gulp.task('deploy', function() {
+    return gulp.src('./dist/**/*')
+        .pipe(ghPages());
 });
