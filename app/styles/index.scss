@@ -92,9 +92,13 @@ p {
   border-radius: 0px;
 }
 
-.navbar-brand {
+.navbar-brand, .navbar a {
   color: $hero-text-color;
   &:hover, &:active, &:visited {
     color: darken($hero-text-color, 10%);
   }
+}
+
+.nav > li > a:hover {
+  background-color: white;
 }
